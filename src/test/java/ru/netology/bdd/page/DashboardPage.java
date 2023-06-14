@@ -27,16 +27,6 @@ public class DashboardPage {
         var text = cards.findBy(text(cardInfo.getCardNumber().substring(12, 16))).getText();
         return extractBalance(text);
     }
-    public int getStartCardBalance(DataHelper.CardInfo cardInfo) {
-        var text = cards.findBy(text(cardInfo.getCardNumber().substring(12, 16))).getText();
-        return extractStartBalance(text);
-    }
-    private int extractStartBalance(String text) {
-        val start = text.indexOf(balanceStart);
-        val finish = text.indexOf(balanceFinish);
-        val value = text.substring(start + balanceStart.length(), finish);
-        return Integer.parseInt(value);
-    }
 
     private int extractBalance(String text) {
         val start = text.indexOf(balanceStart);

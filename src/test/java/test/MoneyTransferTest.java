@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.bdd.data.DataHelper;
 
 import ru.netology.bdd.page.LoginPage;
+import ru.netology.bdd.page.СardTransferPage;
 
 
 import static com.codeborne.selenide.Selenide.open;
@@ -65,7 +66,7 @@ public class MoneyTransferTest {
         var secondCardInfo = getFirstCardInfo();
         int amount = 100000;
         var transferPage = dashboardPage.selectCardToTransfer(secondCardInfo);
-        dashboardPage = transferPage.doTransferIncorrectAmount(String.valueOf(amount), firstCardInfo);
+        transferPage.doTransferIncorrectAmount(String.valueOf(amount), firstCardInfo);
         transferPage.getErrorMessage();
 
 
@@ -86,4 +87,6 @@ public class MoneyTransferTest {
     }
 
 }
+
+        
 
